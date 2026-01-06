@@ -153,9 +153,8 @@ def modular_sampling_scheme(target_model, n_samples=1000):
 
             # 2. Compute Conditional Score (Eq 6)
             # grad_y_k log p(y_k | y_{k+1})
-            # = score_marginal(y_k) + (a/b^2) * (y_{k+1} - a * y_k) ?
+            # = score_marginal(y_k) + (a/b^2) * (y_{k+1} - a * y_k)
             # Check Eq 6: grad_u log p(u|v) = grad_u log p_u(u) - (a/b^2)(au - v)
-            # Yes.
 
             likelihood_score = (
                 (1 / b**2) * (y_curr - a * y_next) * a
@@ -163,7 +162,6 @@ def modular_sampling_scheme(target_model, n_samples=1000):
             # Note: The paper has -(a/b^2)(au - v).
             # The likelihood term is -1/(2b^2) ||v - au||^2. Gradient wrt u is:
             # -1/(2b^2) * 2 * (v - au) * (-a) = (a/b^2)(v - au).
-            # Matches.
 
             total_score = score_marginal + likelihood_score
 
