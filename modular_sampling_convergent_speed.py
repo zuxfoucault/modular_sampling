@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.spatial.distance import cdist
 
-np.random.seed(13)
+np.random.seed(17)
 
 
 # --- 1. Target Distribution & Exact Score ---
